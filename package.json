@@ -1,0 +1,60 @@
+{
+  "name": "mcp-prototype",
+  "version": "1.0.0",
+  "description": "A comprehensive Model Context Protocol (MCP) implementation demonstrating multi-agent orchestration with Azure OpenAI integration",
+  "type": "module",
+  "main": "src/server.js",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai-agents",
+    "azure-openai",
+    "multi-agent-system",
+    "orchestration",
+    "websocket",
+    "microservices"
+  ],
+  "author": "York University IT Innovation",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YorkUITInnovation/MCP-Prototype.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YorkUITInnovation/MCP-Prototype/issues"
+  },
+  "homepage": "https://github.com/YorkUITInnovation/MCP-Prototype#readme",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "scripts": {
+    "start": "npm run start-server",
+    "start-server": "node src/server.js",
+    "start-file-agent": "node src/agents/file-agent.js",
+    "start-calc-agent": "node src/agents/calculator-agent.js", 
+    "start-web-agent": "node src/agents/web-agent.js",
+    "start-orchestrator": "node src/agents/orchestrator-agent.js",
+    "start-ai-agent": "node src/agents/ai-agent.js",
+    "start-all-agents": "npm run start-file-agent & npm run start-calc-agent & npm run start-web-agent & npm run start-orchestrator & npm run start-ai-agent & wait",
+    "demo": "npm run start-server & sleep 2 && npm run start-all-agents",
+    "test": "node scripts/run_summarize_save.js",
+    "setup": "cp .env.example .env && echo 'Please edit .env with your Azure OpenAI credentials'",
+    "validate-env": "node scripts/validate-env.js",
+    "dev": "NODE_ENV=development npm run demo"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "express": "^4.18.2",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {},
+  "files": [
+    "src/",
+    "scripts/",
+    "docs/",
+    ".env.example",
+    "README.md",
+    "LICENSE"
+  ]
+}
